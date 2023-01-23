@@ -1,0 +1,156 @@
+HTTP/1.x vs HTTP/2: 
+HTTP2 Vs. HTTP1 is not a debate at all. HTTP2 is much faster and more reliable than HTTP1. 
+HTTP1 loads a single request for every TCP connection, while HTTP2 avoids network delay by using multiplexing.
+
+HTTP is a network delay sensitive protocol in the sense that if there is less network delay, then the page loads faster. 
+However, an impressive increase in network bandwidth only slightly improves page load time. 
+This is key to understanding the differences in performance efficiencies between the different versions of HTTP.
+ Back in the day when people used dial up modems web pages were simple and it was the actual data transfer between 
+the server and the client that contributed towards the largest chunk of the page load time. Today the actual downloading of 
+resources from server takes a negligible portion of the total page load time due to the tremendous increase in bandwidth availability. 
+
+The table below points out the differentiating factors between http2 vs http1:
+Header CompressionHeaders are sent on every request leading to a lot of duplicate data being sent uncompressed across the wire.
+Header compression is included by default in HTTP/2 using HPACK.Performance OptimizationProvides support for caching to deliver pages faster.
+Spriting, concatenating, inlining, domain sharding are some of the optimizations used as a workaround to the ‘six connections per host’ rule.
+Removes the need for unnecessary optimization hacks.Protocol TypeText based protocol that is in the readable form.I
+t is a binary protocol (HTTP requests are sent in the form of 0s and 1s). Needs to be converted back from binary in order to read it.
+SecuritySSL is not required but recommended. Digest authentication used in HTTP1.1 is an improvement over HTTP1.0.
+ HTTPS uses SSL/TLS for secure encrypted communication.Though security is still not mandatory, it is mostly encrypted (though it is not enforced) 
+since almost all clients require traffic to be encrypted. It also has some minimum standards, such as minimum key size for encryption. TLS 1.2 etc.
+
+Header CompressionHeaders are sent on every request leading to a lot of duplicate data being sent uncompressed across the wire.
+Header compression is included by default in HTTP/2 using HPACK.Performance OptimizationProvides support for caching to deliver pages faster.
+Spriting, concatenating, inlining, domain sharding are some of the optimizations used as a workaround to the ‘six connections per host’ rule.
+Removes the need for unnecessary optimization hacks.Protocol TypeText based protocol that is in the readable form.It is a binary protocol 
+(HTTP requests are sent in the form of 0s and 1s). Needs to be converted back from binary in order to read it.SecuritySSL is not required but recommended.
+ Digest authentication used in HTTP1.1 is an improvement over HTTP1.0. HTTPS uses SSL/TLS for secure encrypted communication.Though security is still not mandatory, 
+it is mostly encrypted (though it is not enforced) since almost all clients require traffic to be encrypted. It also has some minimum standards, 
+such as minimum key size for encryption. TLS 1.2 etc.
+
+
+
+2 write blog about Objects And Its Internal Representation In JavaScript
+ objects in JavaScript may be defined as an unordered collection of related data, of
+ primitive or reference types, in the form of “key: value” pairs. 
+ These keys can be variables or functions and are called properties and methods, respectively,
+ in the context of an object.
+
+In JavaScript, a primitive (primitive value, primitive data type) is data that is not an object and has no methods or properties.
+
+There are 7 primitive data types:
+string.
+number.
+bigint.
+boolean.
+undefined.
+symbol.
+null.
+Difference Between Primitive and Non-Primitive Data Types in JavaScript
+JavaScript primitive data types are data types that refer to a single value.
+
+E.g. var a =5;
+
+Here the variable ‘a’ is an integer data type and has a single integer value. The variable ‘a’ refers to a single value in memory. If we want to change the value of a, we would have to assign a new value to a.  Primitive data types are not mutable.
+
+When we create a variable, it reserves a space for itself in the memory. The variable ‘a’ has space in memory which holds its value. When we try to change the value of ‘a’ by assigning another value like var a = 6, it doesn’t alter the value of the original a, it just creates a new variable ‘a’ with the new value 6.
+
+We can assign the value of ‘a’ to another variable like this:
+
+var a1=a;
+
+Here the variable ‘a1’ is assigned the value of ‘a’, not the address of ‘a’ in memory.
+
+Thus ‘a1’ now holds the same value as ‘a’.
+
+We can compare the two variables ‘a’ and ‘a1’ as the two variables refer to the same value now.
+
+Using the comparison operator will return a Boolean value of ‘true’.
+
+a===a1 // equals to ‘true’ as ‘===’  checks both the value and type of these two variables are true.
+Objects and properties
+A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+
+objectName.propertyName
+
+ 
+
+JavaScript non-primitive types are objects. An object holds a reference/address of a single key-value pair or many key-value pairs.
+ Whenever we refer to an object, we refer to an address in memory which contains the key-value pair. If we assign an object ‘object1’ to another object ‘object2’,
+ we are actually assigning the address of ‘object1’ to ‘object2’ instead of the key-value pair which the ‘object1’ contains in memory. Let’s see below”.
+
+
+var object1= {a:5, a1:6};
+
+var object2 = object1;
+
+The above statement assigns the address of object2 to object1, and not the value {a:5, a1:6}. Thus with this assignment ‘object1’ and ‘object2’
+ refer to the same address in memory.
+
+When we compare these two objects, we find that both of them refer to the same address in memory.
+
+object1===object2 //will return true, as both refer to the same address. If we compare two separate objects like below:
+
+var object1= {a:5, a1:6};
+
+var object2 = {a:5, a1:6};
+
+This statement object1===object2 // would return a false because both the objects refer to two separate addresses in memory. 
+When we compare two objects, we compare their addresses, not their values.
+
+We have seen above in case of primitive data types, that when we assign the variable ‘a’ to variable ‘a1’, the value of ‘a’ is copied to ‘a1’, 
+and not its address which happens in non-primitive data types.
+
+Thus primitive data types refer to a ‘single value’ in an address in memory whereas non-primitive data types refer to the ‘address’ 
+in memory which contains single or multiple key-value pair/s.
+
+ var fruits = new Object();
+basket1 = 'apple
+basket2= 'orange';
+basket3 = 
+Unassigned properties of an object are undefined (and not null).
+
+basket // undefined
+Properties of JavaScript objects can also be accessed or set using a bracket notation 
+(for more details see property accessors). Objects are sometimes called associative arrays,
+ since each property is associated with a string value that can be used to access it. So, for example, 
+you could access the properties of the myCar object as follows:
+
+
+basket1 = 'apple';
+basket2= 'orange
+';
+basket3= 1969;
+Creating Objects In JavaScript :
+Create JavaScript Object with Object Literal
+One of easiest way to create a javascript object is object literal, simply define the property and values inside curly braces as shown below
+
+let fruits = {name: 'apple', orange', mango};
+Create JavaScript Object with Constructor
+Constructor is nothing but a function and with help of new keyword, constructor function allows to create multiple objects of same flavor as shown below
+
+function Vehicle(name, maker) {
+   this.name = name;
+   this.maker = maker;
+}
+let student1 = new  a(’apple’, 'orange’);
+let student2= new b(’apple’, 'mango’)
+console.log(new1.a);    //Output: apple, orange
+console.log(new2.b);    //Output: apple, mango
+Using the JavaScript Keyword new
+The following example also creates a new JavaScript object with four properties:
+
+Example
+
+var person = new Object();
+person.firstName = “hema”;
+person.lastName = “priya”;
+person.age = 26;
+
+
+Using the Object.create method
+Objects can also be created using the Object.create() method. This method can be very useful, 
+because it allows you to choose the prototype object for the object you want to create,
+ without having to define a constructor function.
+
+
